@@ -1,229 +1,218 @@
-House Price Prediction with Multiple Linear Regression
+#  House Price Prediction with Multiple Linear Regression
 
-Çoklu Doğrusal Regresyon ile Ev Fiyat Tahmini
+## Çoklu Doğrusal Regresyon ile Ev Fiyat Tahmini
 
-🇬🇧 English
-Project Objective
+---
 
-This project aims to predict house sale prices using the Ames Housing dataset.
-The main goal is to build a solid baseline model with multiple linear regression, evaluate its limitations, and justify each modeling decision through analytical reasoning.
+## 🇬🇧 English
 
-This project is not competition-oriented; instead, it focuses on demonstrating the learning process and a structured approach to regression modeling.
+### Project Overview
 
-Dataset
+This project focuses on predicting house sale prices using the **Ames Housing dataset**. Rather than aiming for leaderboard performance, the goal is to demonstrate a **clear modeling workflow**, starting from exploratory analysis and ending with a well-justified baseline regression model.
 
-Source: Kaggle – House Prices: Advanced Regression Techniques
+The emphasis is on *why* certain modeling decisions are made, not only *how* they are implemented.
 
-File used: train.csv
+---
 
-Number of observations: 1460
+### Dataset
 
-Number of features: 80+
+* **Source:** Kaggle – *House Prices: Advanced Regression Techniques*
+* **File used:** `train.csv`
+* **Observations:** 1460
+* **Features:** 80+
 
-The dataset contains both numerical and categorical variables.
+The dataset includes both numerical and categorical variables describing residential properties.
 
-The provided test.csv file was not used in this project, as it does not include the true target variable (SalePrice) and is intended only for Kaggle competition submissions.
+The provided `test.csv` file was **not used** in this project, as it does not contain the target variable (`SalePrice`) and is intended solely for Kaggle competition submissions.
 
-Exploratory Data Analysis (EDA)
+Dataset link:
+[https://www.kaggle.com/datasets/rishitaverma02/house-prices-advanced-regression-techniques](https://www.kaggle.com/datasets/rishitaverma02/house-prices-advanced-regression-techniques)
 
-Initial analysis of the target variable SalePrice revealed a left-skewed distribution.
-Since this violates linear regression assumptions, a log transformation was applied to the target variable.
+Due to licensing and distribution restrictions, the raw dataset files are not included in this repository.
 
-The purpose of this transformation was to:
+---
 
-Reduce the influence of outliers
+### Exploratory Data Analysis (EDA)
 
-Stabilize the variance
+Initial inspection of the target variable (`SalePrice`) revealed a **left-skewed distribution**. Since linear regression assumes normally distributed errors, a **log transformation** was applied to the target variable.
 
-Improve model reliability
+This transformation was applied to:
 
-Missing Value Analysis
+* Reduce the influence of extreme values
+* Stabilize variance
+* Improve the robustness and interpretability of the model
 
-Missing values were not treated uniformly across all features.
-Each variable was evaluated based on whether the missing value represented actual missing data or the absence of a property characteristic.
+---
 
-For example:
+### Missing Value Analysis
 
-Variables such as Neighborhood are mandatory and should not be interpreted as missing
+Missing values were handled based on **feature semantics**, not with a single blanket strategy.
 
-Variables like FireplaceQu or PoolQC may indicate that the property does not include that feature
+Examples:
 
-This approach ensured that missing values were handled in a context-aware manner.
+* Variables such as `Neighborhood` are mandatory attributes and should not be interpreted as missing information.
+* Variables like `FireplaceQu` or `PoolQC` often indicate the *absence* of that feature rather than missing data.
 
-Modeling Process
-Baseline Model
+This approach ensures that data cleaning decisions remain consistent with real-world meaning.
 
-A baseline model was built using numerical features only.
-This step was designed to assess how much predictive power numerical variables provide before introducing additional complexity.
+---
 
-Model: Linear Regression
+### Modeling Process
 
-Target variable: log(SalePrice)
+#### Baseline Model
 
-Results:
+A baseline model was constructed using **numerical features only**. The purpose of this step was to measure the predictive strength of numeric variables before introducing additional complexity.
 
-R² Score: 0.876
+* **Model:** Linear Regression
+* **Target variable:** `log(SalePrice)`
 
-RMSE (log-scale): 0.152
+**Results:**
 
-These results indicate that numerical features alone explain a large portion of the variance in house prices.
+* R² Score: **0.876**
+* RMSE (log-scale): **0.152**
 
-Categorical Feature Experiment
+These results indicate that numerical features alone explain a substantial portion of the variance in house prices.
 
-In the next step, selected categorical variables were added to the model:
+---
 
-Neighborhood
+#### Categorical Feature Experiment
 
-ExterQual
+In a subsequent step, selected categorical variables believed to influence house prices were added to the model:
 
-KitchenQual
+* `Neighborhood`
+* `ExterQual`
+* `KitchenQual`
 
-These variables were encoded using one-hot encoding.
-However, no significant improvement in model performance was observed compared to the baseline model.
+These variables were encoded using **one-hot encoding**. However, the inclusion of these features did **not** lead to a meaningful improvement in model performance.
 
-This suggests that the numerical features already capture most of the relevant information and that linear regression has limitations in modeling complex categorical effects.
+This outcome suggests that:
 
-Evaluation
+* Numerical features already capture most of the price-related information
+* Linear regression has limited capacity to model complex categorical interactions
 
-Rather than forcing performance improvements, this project emphasizes understanding why certain changes do or do not impact model results.
+---
 
-The absence of performance improvement after adding categorical features reflects a conscious and analytical modeling approach.
+### Evaluation and Takeaways
 
-Technologies Used
+Instead of forcing performance improvements, this project prioritizes **understanding model behavior**.
 
-Python
+The lack of improvement after adding categorical features highlights the importance of:
 
-Pandas
+* Establishing strong baselines
+* Interpreting results critically
+* Recognizing model limitations
 
-NumPy
+---
 
-Matplotlib
+### Technologies Used
 
-Seaborn
+* Python
+* Pandas
+* NumPy
+* Matplotlib
+* Seaborn
+* Scikit-learn
 
-Scikit-learn
+---
 
-## Dataset
+## 🇹🇷 Türkçe
 
-This project uses the **House Prices: Advanced Regression Techniques** dataset from Kaggle.
+### Proje Özeti
 
-Due to licensing and distribution restrictions, the dataset files are not included in this repository.
-The dataset can be accessed via the following link:
+Bu proje, **Ames Housing veri seti** kullanılarak ev satış fiyatlarının tahmin edilmesini amaçlamaktadır. Çalışma bir Kaggle yarışmasına odaklanmak yerine, **doğru ve gerekçeli bir modelleme sürecini** göstermeyi hedefler.
 
-https://www.kaggle.com/datasets/rishitaverma02/house-prices-advanced-regression-techniques
+Amaç, yalnızca bir model kurmak değil; yapılan her adımın *neden* gerekli olduğunu açıklayabilmektir.
 
+---
 
-🇹🇷 Türkçe
-Projenin Amacı
+### Veri Seti
 
-Bu projede Ames Housing veri seti kullanılarak ev satış fiyatlarının tahmin edilmesi amaçlanmıştır.
-Çalışmanın temel amacı, çoklu doğrusal regresyon kullanarak sağlam bir baseline model oluşturmak, bu modelin sınırlarını gözlemlemek ve yapılan her adımı gerekçeleriyle değerlendirmektir.
+* **Kaynak:** Kaggle – *House Prices: Advanced Regression Techniques*
+* **Kullanılan dosya:** `train.csv`
+* **Gözlem sayısı:** 1460
+* **Özellik sayısı:** 80+
 
-Bu proje bir Kaggle yarışması odaklı değil; öğrenme sürecini ve analitik düşünme yaklaşımını göstermeyi hedeflemektedir.
+Veri seti, konutlara ait hem sayısal hem de kategorik değişkenler içermektedir.
 
-Kullanılan Veri Seti
+Kaggle tarafından sağlanan `test.csv` dosyası, hedef değişken (`SalePrice`) içermediği için bu projede **kullanılmamıştır**. Bu dosya yalnızca yarışma ortamında tahmin üretmek amacıyla tasarlanmıştır.
 
-Kaynak: Kaggle – House Prices: Advanced Regression Techniques
+Veri seti bağlantısı:
+[https://www.kaggle.com/datasets/rishitaverma02/house-prices-advanced-regression-techniques](https://www.kaggle.com/datasets/rishitaverma02/house-prices-advanced-regression-techniques)
 
-Kullanılan dosya: train.csv
+Lisans ve paylaşım kısıtları nedeniyle veri dosyaları bu repoya eklenmemiştir.
 
-Gözlem sayısı: 1460
+---
 
-Özellik sayısı: 80+
+### Keşifsel Veri Analizi (EDA)
 
-Veri seti hem sayısal hem de kategorik değişkenler içermektedir.
+Hedef değişken olan `SalePrice` incelendiğinde dağılımın **sola çarpık** olduğu gözlemlenmiştir. Bu durum doğrusal regresyon varsayımlarını olumsuz etkileyebileceği için hedef değişkene **log dönüşümü** uygulanmıştır.
 
-Kaggle tarafından sağlanan test.csv dosyası, gerçek hedef değişken (SalePrice) içermediği için bu çalışmada kullanılmamıştır. Bu dosya yalnızca yarışma ortamında tahmin üretmek amacıyla tasarlanmıştır.
+Bu dönüşümün amacı:
 
-Keşifsel Veri Analizi (EDA)
+* Aykırı değerlerin etkisini azaltmak
+* Varyansı dengelemek
+* Model çıktılarının daha kararlı olmasını sağlamak
 
-Hedef değişken olan SalePrice incelendiğinde dağılımın sola çarpık olduğu görülmüştür.
-Bu durum doğrusal regresyon varsayımlarını olumsuz etkileyebileceği için hedef değişkene log dönüşümü uygulanmıştır.
+---
 
-Log dönüşümünün amacı:
+### Eksik Değer Analizi
 
-Aykırı değerlerin etkisini azaltmak
+Eksik değerler tüm değişkenler için aynı şekilde ele alınmamıştır. Her değişken, gerçek hayattaki anlamı dikkate alınarak değerlendirilmiştir.
 
-Hata dağılımını daha dengeli hale getirmek
+Örnekler:
 
-Modelin daha kararlı sonuçlar üretmesini sağlamak
+* `Neighborhood` gibi değişkenler her ev için zorunludur ve eksik olarak yorumlanmamalıdır.
+* `FireplaceQu` veya `PoolQC` gibi değişkenlerdeki eksiklikler, evde bu özelliğin bulunmadığını gösterebilir.
 
-Eksik Değer Analizi
+Bu yaklaşım, veri temizleme sürecinin daha anlamlı ve tutarlı olmasını sağlamıştır.
 
-Veri setindeki eksik değerler tek tip olarak ele alınmamıştır.
-Her değişken, eksikliğin anlamı açısından ayrı ayrı değerlendirilmiştir.
+---
 
-Örneğin:
+### Modelleme Süreci
 
-Neighborhood gibi değişkenler her ev için zorunludur ve “yok” olarak kabul edilmemelidir
+#### Baseline Model
 
-FireplaceQu, PoolQC gibi değişkenler evde bu özelliğin bulunmamasını temsil edebilir
+İlk aşamada yalnızca **sayısal değişkenler** kullanılarak bir baseline model oluşturulmuştur. Amaç, daha karmaşık yöntemlere geçmeden önce sayısal değişkenlerin tahmin gücünü ölçmektir.
 
-Bu nedenle eksik değerler kör şekilde doldurulmamış, değişkenlerin gerçek hayattaki karşılıkları dikkate alınmıştır.
+* **Model:** Linear Regression
+* **Hedef değişken:** `log(SalePrice)`
 
-Modelleme Süreci
-Baseline Model
+**Model sonuçları:**
 
-İlk aşamada yalnızca sayısal değişkenler kullanılarak bir baseline model oluşturulmuştur.
-Bu adımın amacı, daha karmaşık işlemler yapılmadan önce sayısal özelliklerin tahmin gücünü gözlemlemektir.
-
-Model: Linear Regression
-
-Hedef değişken: log(SalePrice)
-
-Model sonuçları:
-
-R²: 0.876
-
-RMSE (log-scale): 0.152
+* R²: **0.876**
+* RMSE (log-scale): **0.152**
 
 Bu sonuçlar, sayısal değişkenlerin ev fiyatlarını açıklamada oldukça güçlü olduğunu göstermektedir.
 
-Kategorik Değişkenlerin Eklenmesi
+---
+
+#### Kategorik Değişken Denemesi
 
 Bir sonraki adımda, ev fiyatını etkileyebileceği düşünülen bazı kategorik değişkenler modele eklenmiştir:
 
-Neighborhood
+* `Neighborhood`
+* `ExterQual`
+* `KitchenQual`
 
-ExterQual
+Bu değişkenler one-hot encoding yöntemiyle sayısal hale getirilmiştir. Ancak baseline modele kıyasla anlamlı bir performans artışı gözlemlenmemiştir.
 
-KitchenQual
+Bu durum, sayısal değişkenlerin fiyat bilgisinin büyük bir bölümünü zaten temsil ettiğini ve doğrusal regresyonun kategorik karmaşıklıkları sınırlı şekilde yakalayabildiğini göstermektedir.
 
-Bu değişkenler one-hot encoding yöntemiyle sayısal hale getirilmiştir.
-Ancak model performansı baseline modele kıyasla anlamlı bir iyileşme göstermemiştir.
+---
 
-Bu durum, sayısal değişkenlerin fiyat bilgisinin büyük bir kısmını zaten temsil ettiğini ve doğrusal regresyon modelinin kategorik değişkenlerin karmaşık etkilerini sınırlı şekilde yakalayabildiğini göstermektedir.
+### Değerlendirme ve Çıkarımlar
 
-Değerlendirme
+Bu projede amaç, model skorunu zorla artırmak değil; **neden artmadığını anlayabilmektir**.
 
-Bu projede amaç, model skorunu zorla artırmak değil; neden artmadığını analiz edebilmektir.
+Kategorik değişkenlerin eklenmesine rağmen performansın değişmemesi, modelin sınırlarının ve veri setinin yapısının doğru şekilde yorumlandığını göstermektedir.
 
-Kategorik değişkenler eklenmesine rağmen performansın değişmemesi, modelin sınırlarının ve veri setinin yapısının doğru şekilde anlaşıldığını göstermektedir.
+---
 
-Kullanılan Teknolojiler
+### Kullanılan Teknolojiler
 
-Python
-
-Pandas
-
-NumPy
-
-Matplotlib
-
-Seaborn
-
-Scikit-learn
-
-Seaborn
-
-Scikit-learn
-
-## Veri Seti
-
-Bu projede Kaggle üzerinde paylaşılan **House Prices: Advanced Regression Techniques** veri seti kullanılmıştır.
-
-Lisans ve paylaşım kısıtları nedeniyle veri dosyaları bu repoya eklenmemiştir. 
-Veri setine aşağıdaki bağlantı üzerinden erişilebilir:
-
-https://www.kaggle.com/datasets/rishitaverma02/house-prices-advanced-regression-techniques
-
+* Python
+* Pandas
+* NumPy
+* Matplotlib
+* Seaborn
+* Scikit-learn
