@@ -103,6 +103,16 @@ Seaborn
 
 Scikit-learn
 
+## Dataset
+
+This project uses the **House Prices: Advanced Regression Techniques** dataset from Kaggle.
+
+Due to licensing and distribution restrictions, the dataset files are not included in this repository.
+The dataset can be accessed via the following link:
+
+https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/data
+
+
 🇹🇷 Türkçe
 Projenin Amacı
 
@@ -207,3 +217,13 @@ Scikit-learn
 Seaborn
 
 Scikit-learn
+
+## Veri Seti
+
+Bu projede Kaggle üzerinde paylaşılan **House Prices: Advanced Regression Techniques** veri seti kullanılmıştır.
+
+Lisans ve paylaşım kısıtları nedeniyle veri dosyaları bu repoya eklenmemiştir. 
+Veri setine aşağıdaki bağlantı üzerinden erişilebilir:
+
+https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/data
+
