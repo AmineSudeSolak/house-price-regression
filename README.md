@@ -73,7 +73,6 @@ A baseline model was constructed using **numerical features only**. The purpose 
 
 These results indicate that numerical features alone explain a substantial portion of the variance in house prices.
 
----
 
 #### Categorical Feature Experiment
 
@@ -184,7 +183,6 @@ Bu yaklaşım, veri temizleme sürecinin daha anlamlı ve tutarlı olmasını sa
 
 Bu sonuçlar, sayısal değişkenlerin ev fiyatlarını açıklamada oldukça güçlü olduğunu göstermektedir.
 
----
 
 #### Kategorik Değişken Denemesi
 
