@@ -110,7 +110,7 @@ This project uses the **House Prices: Advanced Regression Techniques** dataset f
 Due to licensing and distribution restrictions, the dataset files are not included in this repository.
 The dataset can be accessed via the following link:
 
-https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/data
+https://www.kaggle.com/datasets/rishitaverma02/house-prices-advanced-regression-techniques
 
 
 🇹🇷 Türkçe
@@ -225,5 +225,5 @@ Bu projede Kaggle üzerinde paylaşılan **House Prices: Advanced Regression Tec
 Lisans ve paylaşım kısıtları nedeniyle veri dosyaları bu repoya eklenmemiştir. 
 Veri setine aşağıdaki bağlantı üzerinden erişilebilir:
 
-https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/data
+https://www.kaggle.com/datasets/rishitaverma02/house-prices-advanced-regression-techniques
 
